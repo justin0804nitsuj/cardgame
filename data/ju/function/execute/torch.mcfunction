@@ -1,0 +1,6 @@
+execute if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:coal_block"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:stick"}}] run scoreboard players set crafter craft_item 6
+execute if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:coal_block"}}] if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:stick"}}] run scoreboard players set crafter craft_item 6
+execute if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:coal_block"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:stick"}}] run schedule function ju:normal/craft 15t
+execute if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:coal_block"}}] if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:stick"}}] run schedule function ju:normal/craft 15t
+execute if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:coal_block"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:stick"}}] run item replace entity @e[type=glow_item_frame] container.0 with air
+execute if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:coal_block"}}] if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:stick"}}] run item replace entity @e[type=glow_item_frame] container.0 with air

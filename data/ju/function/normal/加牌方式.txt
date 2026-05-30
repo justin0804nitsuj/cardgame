@@ -1,0 +1,49 @@
+    在execute裡面建立
+iron_sword.mcfunction
+    要加正反兩種
+execute if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_8,nbt={Item:{id:"minecraft:stick"}}] run scoreboard players set crafter craft_item 1
+execute if entity @e[type=glow_item_frame,tag=slot_8,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:stick"}}] run scoreboard players set crafter craft_item 1
+execute if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_8,nbt={Item:{id:"minecraft:stick"}}] run schedule function ju:normal/craft 15t
+execute if entity @e[type=glow_item_frame,tag=slot_8,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:stick"}}] run schedule function ju:normal/craft 15t
+execute if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_8,nbt={Item:{id:"minecraft:stick"}}] run item replace entity @e[type=glow_item_frame] container.0 with air
+execute if entity @e[type=glow_item_frame,tag=slot_8,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_5,nbt={Item:{id:"minecraft:iron_ingot"}}] if entity @e[type=glow_item_frame,tag=slot_2,nbt={Item:{id:"minecraft:stick"}}] run item replace entity @e[type=glow_item_frame] container.0 with air
+
+    在normal/craft裡面加
+execute if score crafter craft_item matches 1 run summon item 2 -60 6 {Item:{id:"minecraft:iron_sword",count:1},PickupDelay:32767,Age:-32768}
+在normal/kill_item裡面加
+execute if score crafter craft_item matches 1 run function ju:action/iron_sword
+
+
+
+    在action建立 iron_sword.mcfunction
+#執行之動作
+execute if score round_checker round matches 1 run damage @p[team=red] 6
+execute if score round_checker round matches 1 run scoreboard players remove P2 health 6
+execute if score round_checker round matches 2 run damage @p[team=aqua] 6
+execute if score round_checker round matches 2 run scoreboard players remove P1 health 6
+function ju:logic/round_plus
+    在title裡面加 iron_sword.mcfunction
+title @a times 10 70 20
+execute if score round_checker round matches 1 run title @p[team=aqua] title {"text":"我方生成了鐵劍","color":"white"}
+execute if score round_checker round matches 1 run title @p[team=aqua] subtitle {"text":"對敵人造成6點傷害","color":"aqua"}
+
+execute if score round_checker round matches 1 run title @p[team=red] title {"text":"敵方生成了鐵劍","color":"white"}
+execute if score round_checker round matches 1 run title @p[team=red] subtitle {"text":"對我方造成6點傷害","color":"red"}
+
+execute if score round_checker round matches 2 run title @p[team=red] title {"text":"我方生成了鐵劍","color":"white"}
+execute if score round_checker round matches 2 run title @p[team=red] subtitle {"text":"對敵人造成6點傷害","color":"aqua"}
+
+execute if score round_checker round matches 2 run title @p[team=aqua] title {"text":"敵方生成了鐵劍","color":"white"}
+execute if score round_checker round matches 2 run title @p[team=aqua] subtitle {"text":"對我方造成6點傷害","color":"red"}
+
+    tick.json裡面加
+ju:execute/iron_sword
+
+牌號
+1 鐵劍 6點傷害
+2 鑽石劍 8點傷害
+3 盾牌 20點護盾
+4 金十字 回復8點生命
+5 煤炭方塊 獲得1個煤炭方塊
+6 光明的未來 永久增益[+4傷害 +8生命上限]
+7 火焰彈
