@@ -1,0 +1,9 @@
+execute if entity @s[tag=slot_1] if data entity @s Item.id run data modify storage ju:temp board.slot_1 set from entity @s Item.id
+execute if entity @s[tag=slot_2] if data entity @s Item.id run data modify storage ju:temp board.slot_2 set from entity @s Item.id
+execute if entity @s[tag=slot_3] if data entity @s Item.id run data modify storage ju:temp board.slot_3 set from entity @s Item.id
+execute if entity @s[tag=slot_4] if data entity @s Item.id run data modify storage ju:temp board.slot_4 set from entity @s Item.id
+execute if entity @s[tag=slot_5] if data entity @s Item.id run data modify storage ju:temp board.slot_5 set from entity @s Item.id
+execute if entity @s[tag=slot_6] if data entity @s Item.id run data modify storage ju:temp board.slot_6 set from entity @s Item.id
+execute if entity @s[tag=slot_7] if data entity @s Item.id run data modify storage ju:temp board.slot_7 set from entity @s Item.id
+execute if entity @s[tag=slot_8] if data entity @s Item.id run data modify storage ju:temp board.slot_8 set from entity @s Item.id
+execute if entity @s[tag=slot_9] if data entity @s Item.id run data modify storage ju:temp board.slot_9 set from entity @s Item.id

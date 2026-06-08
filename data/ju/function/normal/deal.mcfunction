@@ -1,14 +1,10 @@
-function ju:dealing/random_aqua
-function ju:dealing/random_aqua
-function ju:dealing/random_aqua
-function ju:dealing/random_aqua
-function ju:dealing/random_aqua
-function ju:dealing/random_aqua
-function ju:dealing/random_aqua
-function ju:dealing/random_red
-function ju:dealing/random_red
-function ju:dealing/random_red
-function ju:dealing/random_red
-function ju:dealing/random_red
-function ju:dealing/random_red
-function ju:dealing/random_red
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card
+execute as @e[tag=valid_target,distance=..15] run function ju:dealing/random_card

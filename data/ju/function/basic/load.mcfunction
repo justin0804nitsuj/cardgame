@@ -1,46 +1,30 @@
-scoreboard objectives add health dummy "生命值"
-scoreboard objectives add round dummy "回合數"
-scoreboard objectives add which_turn dummy "誰的回合"
-scoreboard objectives add if_played dummy "本回合是否已出牌"
+# --- 1. 系統運作核心計分板 ---
+scoreboard objectives add delay_tick dummy "延遲處理"
+scoreboard objectives add click_recall used:carrot_on_a_stick "蘿蔔釣竿點擊"
+scoreboard objectives add random_ID dummy "發牌隨機數"
 scoreboard objectives add craft_item dummy "製作物品"
-scoreboard objectives add max_health dummy "最大生命值"
-scoreboard objectives add shield dummy "護盾值"
-scoreboard objectives add additional_damage dummy "額外傷害"
-scoreboard objectives add player_health health "玩家生命值"
+scoreboard objectives add round_count dummy "回合計數器"
+scoreboard players reset @e round_count
+# 儲存當前是由哪一方控制出牌 (1=P1, 2=P2)
+scoreboard objectives add current_turn dummy "當前回合方"
+
+# --- 2. 勝負判定計分板 ---
+scoreboard objectives add death_count deathCount "死亡次數"
+scoreboard objectives add alive_players dummy "存活人數"
+
+# --- 3. 玩家真實血量顯示 (Tab列表) ---
+scoreboard objectives add player_health health "生命值"
 scoreboard objectives modify player_health rendertype hearts
 scoreboard objectives setdisplay list player_health
-scoreboard objectives add on_fire dummy "是否著火"
 
-scoreboard players set P1 health 20
-scoreboard players set P2 health 20
-scoreboard players set round_checker round 0
-scoreboard players reset crafter craft_item 
+# --- 4. 戰鬥增益與減益狀態 ---
+scoreboard objectives add additional_damage dummy "額外傷害"
+scoreboard objectives add on_fire dummy "著火層數"
 
-item replace entity @e[type=glow_item_frame] container.0 with air
-effect clear @a
-tellraw @a {"text":"已重新載入!","color":"aqua"}
-scoreboard objectives add random_ID dummy "隨機數"
+# --- 5. 系統常數初始化 ---
+scoreboard players reset crafter craft_item
 scoreboard players reset randomer random_ID
-team empty aqua
-team empty red
-team add aqua
-team add red
-team join aqua @r
-team join red @p[team=]
-team modify aqua color aqua
-team modify red color red
-scoreboard players set zero health 0
-scoreboard players set P1 max_health 20
-scoreboard players set P2 max_health 20
-scoreboard players set twelve health 12
-scoreboard players set P1 shield 0
-scoreboard players set P2 shield 0
-scoreboard players set six health 6
-scoreboard players set eight health 8
-scoreboard players set ten health 10
-scoreboard players set forteen health 14
-scoreboard players set twenty health 20
-scoreboard players set P1 additional_damage 0
-scoreboard players set P2 additional_damage 0
-scoreboard players set P1 on_fire 0
-scoreboard players set P2 on_fire 0
+
+# --- 6. 載入完成提示 ---
+effect clear @a
+tellraw @a {"text":"[系統] 卡牌對戰資料包已成功重新載入！","color":"aqua","bold":true}

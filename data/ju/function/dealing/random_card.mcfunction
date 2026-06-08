@@ -1,0 +1,29 @@
+execute store result score randomer random_ID run random value 0..26
+#鑽石 1 木棒7 原木5 鐵錠4 金錠3 煤炭5 火焰彈 2
+execute if score randomer random_ID matches 0 run give @s diamond 1
+execute if score randomer random_ID matches 1 run give @s stick 1
+execute if score randomer random_ID matches 2 run give @s stick 1
+execute if score randomer random_ID matches 3 run give @s stick 1
+execute if score randomer random_ID matches 4 run give @s stick 1
+execute if score randomer random_ID matches 5 run give @s stick 1
+execute if score randomer random_ID matches 6 run give @s stick 1
+execute if score randomer random_ID matches 7 run give @s stick 1
+execute if score randomer random_ID matches 8 run give @s oak_planks 1
+execute if score randomer random_ID matches 9 run give @s oak_planks 1
+execute if score randomer random_ID matches 10 run give @s oak_planks 1
+execute if score randomer random_ID matches 11 run give @s oak_planks 1
+execute if score randomer random_ID matches 12 run give @s oak_planks 1
+execute if score randomer random_ID matches 13 run give @s iron_ingot 1
+execute if score randomer random_ID matches 14 run give @s iron_ingot 1
+execute if score randomer random_ID matches 15 run give @s iron_ingot 1
+execute if score randomer random_ID matches 16 run give @s iron_ingot 1
+execute if score randomer random_ID matches 17 run give @s gold_ingot 1
+execute if score randomer random_ID matches 18 run give @s gold_ingot 1
+execute if score randomer random_ID matches 19 run give @s gold_ingot 1
+execute if score randomer random_ID matches 20 run give @s coal 1
+execute if score randomer random_ID matches 21 run give @s coal 1
+execute if score randomer random_ID matches 22 run give @s coal 1
+execute if score randomer random_ID matches 23 run give @s coal 1
+execute if score randomer random_ID matches 24 run give @s coal 1
+execute if score randomer random_ID matches 25 run give @s fire_charge 1
+execute if score randomer random_ID matches 26 run give @s fire_charge 1

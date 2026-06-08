@@ -1,11 +1,5 @@
- {
+{
   "values": [
-    "ju:execute/iron_sword",
-    "ju:execute/diamond_sword",
-    "ju:execute/shield",
-    "ju:execute/gold_cross",
-    "ju:execute/coal_block",
-    "ju:execute/torch",
-    "ju:execute/fire_charge"
+    "ju:basic/tick"
   ]
 }
